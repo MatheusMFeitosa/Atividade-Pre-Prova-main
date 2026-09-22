@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt=br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader&family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="overlay" id="overlay"></div>
+    <header>
+        <div class="informacoes-topo"><span class="selo">AO VIVO</span><span>Data e hora</span></div>
+        <button class="botao-mudar-tema"><i class="fa-solid fa-cloud-moon"></i>Escuro</button>
+    </header>
+    <nav class="navegacao-principal">
+        <div class="container-menu" id="botaoMenu">
+            <div class="menu"></div>
+        </div>
+
+        <ul class="conteudo-menu" id="listaMenu">
+            <li class="nav-link"><a href="tecnologia.html">Tecnologia</a></li>
+            <li class="nav-link"><a href="negocios.html">Negócios</a></li>
+            <li class="nav-link"><a href="ciencias.html">Ciências</a></li>
+            <li class="nav-link"><a href="cultura.html">Cultura</a></li>
+            <li class="nav-link"><a href="opniao.html">Opinião</a></li>
+        </ul>
+
+        <a class="logo" href="index.html">Sabe<i class="fa-solid fa-eye"></i>Tudo</a>
+
+        <label for="barraDeBusca">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input class="barra-busca" type="search" name="" id="barraDeBusca" placeholder="Buscar noticias...">
+        </label>
+    </nav>
+    <main>
+        <article class="noticia-principal">
+            <img class="imagemCarregamentoCelular" src="../media/carregamentoCelular.jpg" alt="imagem-noticia">
+            <p class="tag-noticia tecnologia">TECNOLOGIA</p>
+            <h1 class="manchete">Nova bateria de estado sólido promete carregar smartphones de 0 a 100% em apenas 5 minutos</h1>
+            <section class="corpo-noticia">
+                <p>
+                    Pesquisadores de uma universidade asiática desenvolveram um novo composto que evita o superaquecimento durante 
+                    recargas ultrarrápidas. A tecnologia deve chegar aos celulares de ponta já no próximo ano, aposentando o costume 
+                    de carregar o aparelho durante a noite.
+                </p>
+            </section>
+        </article>
+        <aside class="noticias-laterais">
+            <ul class="outras-noticia">
+                <li>
+                    <a href="">
+                        <h4 class="manchete"></h4>
+                        <p class="tema-data"></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <h4 class="manchete"></h4>
+                        <p class="tema-data"></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <h4 class="manchete"></h4>
+                        <p class="tema-data"></p>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy SabeTudo - Portal-modelo para fins didáticos</p>
+        <ul>
+            <li><a href="">Sobre</a></li>
+            <li><a href="">Contato</a></li>
+            <li><a href="">Privacidade</a></li>
+            <li><a href="">Termos</a></li>
+        </ul>
+    </footer>
+    <script src="https://kit.fontawesome.com/d02a564654.js" crossorigin="anonymous"></script>
+    <script src="../script/index.js"></script>
+</body>
+
+</html>

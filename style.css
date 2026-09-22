@@ -1,0 +1,429 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --paper: #FFFFFF;
+    --ink: #15171C;
+    --slate: #5A6472;
+    --mist: #EEF0F3;
+    --line: #E2E5EA;
+    --signal: #E5372A;
+
+    /* Cores de apoio */
+    --tecnologia: #2F6BEB;
+    --negocio: #C07A12;
+    --ciencia: #0F8C7E;
+    --cultura: #B8348F;
+    --opniao: #5A6472;
+
+    /* Tipografia */
+    --fonte-editorial: "Newsreader", serif;
+    --fonte-interface: "Inter", Arial, sans-serif;
+}
+
+body {
+    font-family: var(--fonte-interface);
+    background-color: var(--mist);
+}
+
+h1, h2, h3, h4, h5, h6, .logo, .manchete {
+    font-family: var(--fonte-editorial);
+}
+
+/*  Fundo Escuro (Overlay do restante da página)  */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    z-index: 990; 
+    
+    background-color: rgba(21, 23, 28, 0.7);
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+}
+
+.overlay.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Impede o usuário de rolar a página quando o menu está aberto */
+body.travado {
+    overflow: hidden;
+}
+
+
+/*  Header  */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 8vh;
+    padding: 0 10%;
+
+    border-bottom: 2px solid var(--line);
+    background-color: var(--paper);
+}
+
+header div {
+    display: flex;
+    
+    width: 30%;
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.3; }
+}
+
+.selo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    
+    padding-right: 5%;
+    
+    color: var(--signal);
+}
+
+header div span.selo::before {
+    content: "";
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    
+    background-color: var(--signal);
+    border-radius: 50px;
+
+    animation: piscar 1.5s infinite ease-in-out;
+}
+
+header button.botao-mudar-tema {
+    all: unset;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    width: 10%;
+    padding: 5px;
+    
+    border: 1px solid var(--ink);
+    border-radius: 25px;
+
+    background-color: var(--paper);
+
+    transition: all ease-in-out;
+}
+
+header button.botao-mudar-tema:hover {
+    background-color: var(--mist);
+}
+
+
+/*  Nav  */
+nav.navegacao-principal {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    width: 100%;
+    height: 11vh;
+    padding: 0 10%;
+    z-index: 1000;
+    
+    background-color: var(--paper);
+    box-shadow: 0 2px 5px var(--slate);
+}
+
+nav.navegacao-principal::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    
+    background-color: rgba(21, 23, 28, 0.7);
+    
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Quando clicar, ativa a sombra da Nav */
+nav.navegacao-principal:has(.container-menu.ativo)::after {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+nav.navegacao-principal a.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+
+    display: flex;
+
+    font-size: 2.2rem;
+    font-weight: bold;
+
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.fa-eye {
+    color: var(--signal);
+}
+
+
+/*  Botão do Menu Hambúrguer  */
+.container-menu {
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 45px;
+    height: 45px;
+    z-index: 20;
+    
+    border-radius: 50%;
+    cursor: pointer;
+    
+    transition: background-color 0.3s ease;
+}
+
+.container-menu.ativo .menu {
+    background-color: transparent;
+}
+
+/* Linhas do Hambúrguer */
+.navegacao-principal .menu {
+    position: relative;
+    display: inline-block;
+
+    width: 25px;
+    height: 3px;
+    
+    border-radius: 3px;
+    background-color: var(--ink);
+    
+    transition: all 0.4s ease-in-out;
+}
+
+.navegacao-principal .menu::before,
+.navegacao-principal .menu::after {
+    content: "";
+    position: absolute;
+    left: 0;
+
+    width: 25px;
+    height: 3px;
+
+    border-radius: 3px;
+    background-color: var(--ink);
+
+    transition: all 0.4s ease-in-out;
+}
+
+.navegacao-principal .menu::before { top: -8px; }
+.navegacao-principal .menu::after { top: 8px; }
+
+
+/*  Menu Lateral Deslizante  */
+.conteudo-menu {
+    position: fixed;
+    top: 0;
+    left: -350px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    
+    width: 350px;
+    height: 100vh;
+    padding: 0 50px;
+    z-index: 1001;
+    
+    background-color: var(--paper);
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+
+    list-style-type: none;
+    transition: left 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+.conteudo-menu.ativo {
+    left: 0; 
+}
+
+.conteudo-menu a {
+    text-decoration: none;
+    
+    font-weight: bold;
+    font-size: 2rem;
+    
+    color: var(--slate);
+    
+    transition: color 0.3s, padding-left 0.3s;
+}
+
+.conteudo-menu a:hover {
+    padding-left: 10px;
+    color: var(--signal);
+}
+
+
+/*  Barra de Busca  */
+nav.navegacao-principal label { 
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    width: 250px;
+    height: 45px;
+    padding: 0 15px;
+
+    border: 1px solid var(--ink);
+    border-radius: 25px;
+
+    background-color: var(--line);
+    cursor: text;
+}
+
+nav.navegacao-principal label input {
+    all: unset;
+
+    width: 100%;
+    height: 100%;
+
+    color: var(--ink);
+}
+
+
+/*  Main  */
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin: 3% 10%;
+}
+
+/*  Noticia principal  */
+.noticia-principal {
+    width: 65%;
+    
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--paper);
+}
+
+.imagemCarregamentoCelular {
+    width: 100%;
+    height: auto;
+    
+    border-radius: 10px;
+}
+
+.tag-noticia {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 8px 15px;
+    margin-top: 20px;
+    border-radius: 20px;
+    
+    font-weight: bold;
+    font-size: 0.8rem;
+    
+    color: var(--paper);
+}
+
+.tecnologia {
+    background-color: var(--tecnologia);
+}
+
+.noticia-principal h1.manchete {
+    margin: 15px 0;
+    
+    font-size: 2.5rem;
+    line-height: 1.1;
+}
+
+.corpo-noticia p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--slate);
+}
+
+
+/*  Aside com outras noticias  */
+aside.noticias-laterais {
+    width: 30%;
+    padding: 20px;
+    
+    border-radius: 10px;
+    background-color: var(--paper);
+}
+
+
+/*  Footer  */
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    width: 100%;
+    height: 10vh;
+    padding: 0 10%;
+    margin-top: 50px;
+
+    border-top: 3px solid var(--mist);
+    background-color: var(--paper);
+}
+
+footer ul {
+    list-style: none;
+    
+    display: flex;
+    gap: 20px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    font-weight: bold;
+
+    color: var(--slate);
+}
+
+footer ul li a:hover {
+    color: var(--signal);
+}
