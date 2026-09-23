@@ -103,10 +103,43 @@ header div span.selo::before {
     width: 10px;
     height: 10px;
     
-    background-color: var(--signal);
     border-radius: 50px;
-
+    
+    background-color: var(--signal);
+    
     animation: piscar 1.5s infinite ease-in-out;
+}
+
+.informacoes-topo {
+    display: flex;
+    align-items: center;
+    
+    width: 40%;
+}
+
+.data::after {
+    content: "";
+    display: inline-block;
+
+    width: 5px;
+    height: 5px;
+
+    margin: 0 7px 0 7px;
+    
+
+    border-radius: 50%;
+
+    background-color: var(--slate);
+}
+
+.data {
+    display: flex;
+    align-items: center;
+}
+
+.data, .hora {
+    color: var(--slate);
+
 }
 
 header button.botao-mudar-tema {
@@ -313,7 +346,7 @@ nav.navegacao-principal label {
     border: 1px solid var(--ink);
     border-radius: 25px;
 
-    background-color: var(--line);
+    background-color: var(--mist);
     cursor: text;
 }
 
@@ -341,6 +374,7 @@ main {
 /*  Noticia principal  */
 .noticia-principal {
     width: 65%;
+    height: auto;
     
     padding: 20px;
     border-radius: 10px;
@@ -381,9 +415,31 @@ main {
 }
 
 .corpo-noticia p {
+    margin-bottom: 25px;
+    
     font-size: 1.2rem;
     line-height: 1.6;
     color: var(--slate);
+}
+
+.informacoes-noticia-principal span{
+    font-size: 0.9rem;
+
+    color: var(--slate);
+}
+
+.span-noticia::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+
+    width: 4px;
+    height: 4px;
+
+    margin: 0 10px ;
+    border-radius: 50%;
+
+    background-color: var(--slate);
 }
 
 
@@ -411,20 +467,25 @@ aside.noticias-laterais {
     align-items: center;
 
     width: 100%;
-    height: 10vh;
-    padding: 10%;
+    height: auto;
+    padding: 3%;
 
     border-bottom: 2px solid var(--mist);
 }
 
 .linha-noticia h4 {
-    padding: 0 0 0 10%;
+    padding-left: 10%;
+
+    line-height: 25px;
+    font-size: 1.2rem;
 
     color: var(--ink);
 }
 
 .linha-noticia p {
-    padding-left: 10%;
+    padding: 4% 0 0 10%;
+
+    font-size: 0.85rem;
 
     color: var(--slate);
 }
@@ -435,21 +496,17 @@ aside.noticias-laterais {
 
 .linha-noticia::before {
     position: absolute;
-    top: 5px;
+    top: 7px;
 
     content: counter(contador-noticias);
     display: inline-block;
 
-    width: 5vw;
-    height: 5vw;
+    font-weight: bold;
+    font-size: 1.4rem;
+    font-family: var(--fonte-editorial);
+
+    color: var(--signal);
 }
-
-.outras-noticias h4 {
-
-}
-
-
-
 
 /*  Footer  */
 footer {

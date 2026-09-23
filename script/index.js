@@ -16,15 +16,56 @@ botaoMenu.addEventListener("click", alternarMenu);
 overlay.addEventListener("click", alternarMenu);
 
 
-// function mundarNumeroNoticia() {
-//     const numeroOutrasNoticias = document.querySelectorAll(".linha-noticia");
+function dataHoraTempoReal() {
+    const data = document.querySelector(".data");
+    const hora = document.querySelector(".hora");
 
-//     for (let i = 0; i < numeroOutrasNoticias.length; i++) {
-//         const numero = numeroOutrasNoticias[i];
+    const agora = new Date();
+    
+    const diasSemana = [
+        "Domingo", 
+        "Segunda-feira", 
+        "Terça-feira", 
+        "Quarta-feira", 
+        "Quinta-feira", 
+        "Sexta-feira", 
+        "Sábado"
+    ];
 
-//         numero.style.setProperty("--texto-before", `"${i}"`);
-        
-//     }
-// }
+    const meses  = [
+        "Janeiro",
+        "Fevereiro",
+        "Março",
+        "Abril",
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+        "Novembro",
+        "Dezembro",
+    ];
 
-// mundarNumeroNoticia();
+    let diaSemana = agora.getDay();
+    let mesAno = agora.getMonth();
+
+    let nomeDia = diasSemana[diaSemana];
+    let nomeMes = meses[mesAno];
+
+    // padStart(2, '0') garante que dias de 1 a 9 fiquem com um zero na frente
+    let dia = String(agora.getDate()).padStart(2, '0');
+
+
+    let horas = String(agora.getHours()).padStart(2, '0');
+    let minutos = String(agora.getMinutes()).padStart(2, '0');
+    let segundos = String(agora.getSeconds()).padStart(2, '0');
+
+    data.textContent = `${nomeDia} , ${dia} ${nomeMes}`;
+    hora.textContent = `${horas}:${minutos}:${segundos}`;
+}
+
+setInterval(dataHoraTempoReal, 1000);
+
+dataHoraTempoReal();
+
