@@ -68,4 +68,3 @@ function dataHoraTempoReal() {
 setInterval(dataHoraTempoReal, 1000);
 
 dataHoraTempoReal();
-

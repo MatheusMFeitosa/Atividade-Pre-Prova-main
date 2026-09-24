@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Newsreader&family=Inter&display=swap" rel="stylesheet">
+    <link rel="icon" href="../media/eye-solid-full.svg">
     <link rel="stylesheet" href="../style.css">
     <title>SabeTudo</title>
 </head>
@@ -12,7 +13,8 @@
 <body>
     <div class="overlay" id="overlay"></div>
     <header>
-        <div class="informacoes-topo"><span class="selo">AO VIVO</span><span class="data"></span><span class="hora"></span></div>
+        <div class="informacoes-topo"><span class="selo">AO VIVO</span><span class="data"></span><span
+                class="hora"></span></div>
         <button class="botao-mudar-tema"><i class="fa-solid fa-cloud-moon"></i>Escuro</button>
     </header>
     <nav class="navegacao-principal">
@@ -23,7 +25,7 @@
         <ul class="conteudo-menu" id="listaMenu">
             <li class="nav-link"><a href="tecnologia.html">Tecnologia</a></li>
             <li class="nav-link"><a href="negocios.html">Negócios</a></li>
-            <li class="nav-link"><a href="ciencias.html">Ciências</a></li>
+            <li class="nav-link"><a href="ciencias.html">Ciência</a></li>
             <li class="nav-link"><a href="cultura.html">Cultura</a></li>
             <li class="nav-link"><a href="opniao.html">Opinião</a></li>
         </ul>
@@ -36,45 +38,70 @@
         </label>
     </nav>
     <main>
-        <article class="noticia-principal">
-            <img class="imagemCarregamentoCelular" src="../media/carregamentoCelular.jpg" alt="imagem-noticia">
-            <p class="tag-noticia tecnologia">TECNOLOGIA</p>
-            <h1 class="manchete">Nova bateria de estado sólido promete carregar smartphones de 0 a 100% em apenas 5 minutos</h1>
-            <section class="corpo-noticia">
-                <p>
-                    Pesquisadores de uma universidade asiática desenvolveram um novo composto que evita o superaquecimento durante 
-                    recargas ultrarrápidas. A tecnologia deve chegar aos celulares de ponta já no próximo ano, aposentando o costume 
-                    de carregar o aparelho durante a noite.
-                </p>
+        <div class="painel-principal">
+            <article class="noticia-principal">
+                <img class="imagemCarregamentoCelular" src="../media/carregamentoCelular.jpg" alt="imagem-noticia">
+                <p class="tag-noticia tecnologia">TECNOLOGIA</p>
+                <h1 class="manchete">Nova bateria de estado sólido promete carregar smartphones de 0 a 100% em apenas 5
+                    minutos</h1>
+                <section class="corpo-noticia">
+                    <p>
+                        Pesquisadores de uma universidade asiática desenvolveram um novo composto que evita o
+                        superaquecimento durante
+                        recargas ultrarrápidas. A tecnologia deve chegar aos celulares de ponta já no próximo ano,
+                        aposentando o costume
+                        de carregar o aparelho durante a noite.
+                    </p>
 
-            </section>
-            <div class="informacoes-noticia-principal">
-                <span class="span-noticia">Por <strong>Pedro Squizzato</strong></span><span class="span-noticia">21 set 2026</span><span>10 min de leitura</span>
+                </section>
+                <div class="informacoes-noticia-principal">
+                    <span class="span-noticia">Por <strong>Pedro Squizzato</strong></span><span class="span-noticia">21
+                        set 2026</span><span>10 min de leitura</span>
+                </div>
+            </article>
+
+            <aside class="noticias-laterais">
+                <ul class="outras-noticias" id="listaLaterais">
+                </ul>
+            </aside>
+        </div>
+
+        <section class="ultimas-noticias">
+            <div class="topo-ultimas-noticisa">
+                <h1>Últimas</h1>
+
+                <ul class="botoes-filtro" id="listaFiltros">
+                    <li class="filtro ativo">Todas</li>
+                    <li class="filtro">Tecnologia</li>
+                    <li class="filtro">Negócios</li>
+                    <li class="filtro">Ciência</li>
+                    <li class="filtro">Cultura</li>
+                    <li class="filtro">Opinião</li>
+                </ul>
             </div>
-        </article>
-        <aside class="noticias-laterais">
-            <ul class="outras-noticias">
-                <li class="linha-noticia">
-                    <a href="">
-                        <h4 class="manchete">Telescópio espacial detecta fortes sinais de vapor d'água em exoplaneta "próximo" à Terra</h4>
-                        <p class="tema-data">Ciência - 21 set</p>
-                    </a>
-                </li>
-                <li class="linha-noticia">
-                    <a href="">
-                        <h4 class="manchete">Maior festival de música indie do mundo anuncia edição 100% em Realidade Virtual</h4>
-                        <p class="tema-data">Cultura - 22 set</p>
-                    </a>
-                </li>
-                <li class="linha-noticia">
-                    <a href="">
-                        <h4 class="manchete">Startup brasileira transforma plástico do oceano em móveis de luxo e recebe aporte de R$ 50 milhões</h4>
-                        <p class="tema-data">Negócios - 22 set</p>
-                    </a>
-                </li>
-            </ul>
-        </aside>
+
+            <div class="grade-noticias" id="gradeNoticias">
+            </div>
+
+            <div class="container-carregar-mais">
+                <button id="botaoCarregarMais">Carregar Mais</button>
+            </div>
+        </section>
     </main>
+
+    <section class="newsletter">
+        <div class="conteudo-newsletter">
+            <h2>Assine nossa Newsletter</h2>
+            <p>Receba as principais notícias do dia diretamente no seu e-mail.</p>
+
+            <form id="formNewsletter">
+                <input type="email" id="emailNewsletter" placeholder="Digite seu e-mail...">
+                <button type="submit">Assinar</button>
+            </form>
+
+            <span id="mensagemNewsletter"></span>
+        </div>
+    </section>
 
     <footer>
         <p>&copy SabeTudo - Portal-modelo para fins didáticos</p>
@@ -87,6 +114,10 @@
     </footer>
     <script src="https://kit.fontawesome.com/d02a564654.js" crossorigin="anonymous"></script>
     <script src="../script/index.js"></script>
+    <script src="../script/modificarTemas.js"></script>
+    <script src="../script/noticias.js"></script>
+    <script src="../script/validacaoNewsletter.js"></script>
+    <script src="../script/menuLateral.js"></script>
 </body>
 
 </html>
