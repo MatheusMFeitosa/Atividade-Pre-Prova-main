@@ -1,10 +1,10 @@
-# SabeTudo - Portal de Notícias 📰
+# SabeTudo - Portal de Notícias
 
 Projeto desenvolvido para a disciplina de Desenvolvimento Web 2, consistindo na criação de um portal de notícias/blog responsivo e dinâmico, utilizando a tela-modelo "Latência" como inspiração. 
 
 O projeto foi construído utilizando apenas **HTML5 semântico**, **CSS3 (Flexbox e Grid)** e **JavaScript Vanilla**, sem o uso de bibliotecas externas.
 
-## 🎨 Design e Interface
+## Design e Interface
 
 A interface foi projetada com foco em legibilidade e usabilidade, aplicando um sistema de design consistente.
 
@@ -35,7 +35,7 @@ As cores foram aplicadas através de variáveis CSS, permitindo a fácil manuten
 - **Imagens:** As fotos utilizadas nos cards de notícias foram retiradas de bancos de imagens gratuitos de uso livre (Unsplash / Pexels).
 - **Ícones:** Foi utilizada a biblioteca Font Awesome para a renderização dos ícones de interface (busca, tema, botão de fechar, etc.).
 
-## ⚙️ Funcionalidades e Interatividade (JavaScript)
+## Funcionalidades e Interatividade (JavaScript)
 
 O site possui manipulação direta do DOM atendendo aos seguintes requisitos:
 - **Relógio ao vivo:** Data e hora no cabeçalho atualizadas a cada segundo.
